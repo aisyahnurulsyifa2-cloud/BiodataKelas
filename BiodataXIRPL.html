@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		
+		<title>Sistem Informasi Biodata XI RPL</title>
+       <style>
+        /* CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #27db21;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+            header .logo {
+            position: absolute;
+            left: 20px; /* Jarak dari kiri */
+            top: 50%; /* Posisi vertikal di tengah */
+            transform: translateY(-50%); /* Menyesuaikan posisi agar benar-benar di tengah */
+            height: 120px; /* Ukuran logo */
+        }
+        header .logo-right {
+          position: absolute;
+          right: 20px; 
+          top: 50%;
+          transform: translateY(-50%);
+          height: 120px;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            flex: 1;
+            text-align: center;
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+        }
+        h1 {
+            color: #ffffff;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #5ce957;
+            padding-bottom: 10px;
+        }
+        ul.siswa-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul.siswa-list li {
+            background-color: #e9ecef;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        ul.siswa-list li:hover {
+            background-color: #d7d7d7;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .profile-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .profile-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #06ce53;
+        }
+        .profile-details {
+            font-size: 1.1em;
+        }
+        .profile-details p {
+            margin: 5px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+
+		<meta name="description" content="Sistem Informasi Biodata" />
+
+
+    </head>
+      <header>
+        <img src="logoyapis.png" alt="Logo Sekolah" class="logo">
+        <h1>Biodata Kelas XI RPL</h1>
+        <img src="logoRPL.png" alt="Second Logo" class="logo-right">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('beranda-page')">Beranda</a></li>
+            <li><a href="#" onclick="showPage('profil-page')">Profil</a></li>
+            <li><a href="#" onclick="showPage('kontak-page')">Kontak</a></li>
+        </ul>
+    </nav>
+      
+      <div class="container">
+        <main>
+            <div id="beranda-page" class="page active">
+                <h2>Daftar Siswa</h2>
+                <ul id="siswa-list" class="siswa-list">
+                    </ul>
+            </div>
+
+            <div id="profil-page" class="page">
+                <div id="profil-content">
+                    <h2>Profil Kelas</h2>
+                    <p>Silakan pilih nama siswa dari halaman Beranda untuk melihat profil lengkap.</p>
+                </div>
+            </div>
+
+            <div id="kontak-page" class="page">
+                <h2>Kontak Kami</h2>
+                <p>Jika Anda memiliki pertanyaan atau ingin menghubungi kami, silakan gunakan informasi di bawah ini:</p>
+                <ul>
+                    <li><strong>Email:</strong> ourvibesrpl@gmail.com</li>
+                    <li><strong>Alamat:</strong>Jl. Dr. Sam Ratulangi No.11 Dok V Atas, Kota Jayapura</li>
+                    <li><strong>Media Sosial (Instagram):</strong> @ourvibes.xirpl</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Biodata Kelas XI RPL. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        // Data siswa dalam array JavaScript
+        const studentsData = [
+            { id: 1, nama: "ADHIKA DIPTA WIDAGDHA", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/06ce53/FFFFFF?text=Adhika", alamat: "" },
+            { id: 2, nama: "AFHGAN MARVEL JONET TOROBI", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/06ce53/FFFFFF?text=Afhgan", alamat: "" },
+            { id: 3, nama: "AGIL PRATAMA", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/06ce53/FFFFFF?text=Agil", alamat: "" },
+            { id: 4, nama: "AISYAH NURUL SYIFA", ttl: "Jayapura, 5 Agustus 2009", kelas: "XI RPL", golongan_darah: "B", foto_url: "syifa.png", alamat: "Bhayangkara Baru Dok V Atas" },
+            { id: 5, nama: "ANDI RIZKY SUNHAJI", ttl: "Jayapura, 13 Februari 2009", kelas: "XI RPL", golongan_darah: "B", foto_url: "andirisky.png", alamat: "Klofkamp Jalan Printis 1" },
+            { id: 6, nama: "ANDI ALTHAF FIKRI ALFARISI", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/06ce53/FFFFFF?text=Althaf", alamat: "" },
+            { id: 7, nama: "ALZALLI ALVAR", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/06ce53/FFFFFF?text=Alvaro", alamat: "" },
+            { id: 8, nama: "JESSICA FERBI MAHARANI", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/06ce53/FFFFFF?text=Jessica", alamat: "" },
+            { id: 9, nama: "LUKMAN", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/06ce53/FFFFFF?text=Lukman", alamat: "" },
+            { id: 10, nama: "MUHAMMAD SALMAN TAROMAN", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/06ce53/FFFFFF?text=Salman", alamat: "" },
+            { id: 11, nama: "MUHAMMAD KAFKHA AFRIANSYAH IKHMANUDDIN", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Kafkha", alamat: "" },
+            { id: 12, nama: "MEYLIAN PUTRI UTAMY", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Meylian", alamat: "" },
+            { id: 13, nama: "NUR MARISA", ttl: "Jayapura, 18 April 2009", kelas: "XI RPL", golongan_darah: "O", foto_url: "marisa.png", alamat: "Jl. Tanjung Ria Dok IX" },
+            { id: 14, nama: "PUTRA SATRIYO UTOMO", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Putra", alamat: "" },
+            { id: 15, nama: "RAHLIL IVAN", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Rahlil", alamat: "" },
+            { id: 16, nama: "RESKY AURA RUZIVA", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Resky", alamat: "" },
+            { id: 17, nama: "RIDHO", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Ridho", alamat: "" },
+            { id: 18, nama: "RIZKY MAULANA RAWEYAI", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Rizky", alamat: "" },
+            { id: 19, nama: "ROVIE SHAFFINAH PUTRI", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Rovie", alamat: "" },
+            { id: 20, nama: "RAHMAT RIANTO", ttl: "", kelas: "", golongan_darah: "", foto_url: "https://via.placeholder.com/150/CCCCCC/000000?text=Rahmat", alamat: "" },
+            { id: 21, nama: "SATRIA RAMADHAN", ttl: "Istanbul (Turki), 3 November 2008", kelas: "XI RPL", golongan_darah: "O", foto_url: "satria.png", alamat: "Asrama Bekang, JL.Bakau Dok II Bawah" },
+        ];
+        
+        // Fungsi untuk menampilkan halaman
+        function showPage(pageId) {
+            let pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            let activePage = document.getElementById(pageId);
+            activePage.classList.add('active');
+        }
+
+        // Fungsi untuk menampilkan profil siswa
+        function showProfile(studentId) {
+            const student = studentsData.find(s => s.id === studentId);
+            const profileContent = document.getElementById('profil-content');
+            
+            // Mengganti konten dengan biodata siswa
+            profileContent.innerHTML = `
+                <h2>Profil ${student.nama}</h2>
+                <div class="profile-card">
+                    <img src="${student.foto_url}" alt="Foto ${student.nama}">
+                    <div class="profile-details">
+                        <p><strong>Nama:</strong> ${student.nama}</p>
+                        <p><strong>Tempat, Tanggal Lahir:</strong> ${student.ttl}</p>
+                        <p><strong>Kelas:</strong> ${student.kelas}</p>
+                        <p><strong>Golongan Darah:</strong> ${student.golongan_darah}</p>
+                        <p><strong>Alamat:</strong> ${student.alamat}</p>
+                    </div>
+                </div>
+            `;
+            // Pindah ke halaman profil
+            showPage('profil-page');
+        }
+
+        // Fungsi untuk membuat daftar siswa secara dinamis saat halaman dimuat
+        function createStudentList() {
+            const listContainer = document.getElementById('siswa-list');
+            studentsData.forEach(student => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${student.id}. ${student.nama}`;
+                listItem.onclick = () => showProfile(student.id);
+                listContainer.appendChild(listItem);
+            });
+        }
+
+        // Panggil fungsi untuk membuat daftar siswa saat halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', createStudentList);
+    </script>
+
+</body>
+</html>
